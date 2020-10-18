@@ -1,43 +1,36 @@
-class Movie:
+class News_Source:
     """
-    Movie class to define Movie Objects
+    News-source class to define News Objects
     """
 
-    def __init__(self,id,title,overview,poster,vote_average,vote_count):
-        self.id =id
+    def __init__(self,id,name,description,url,category,language,country):
+        """
+        Initiliazing the variables of the class
+        """
+        self.id = id 
+        self.name = name 
+        self.description = description
+        self.url = url 
+        self.category = category 
+        self.language = language
+        self.country = country 
+
+        
+class News_Articles:
+    """
+    News articles class to define news-article objects
+    """
+
+    def __init__(self,id,title,author,description,url,urlToImage,publishedAt,date):
+        """
+        Initiliazing the variables of the class
+        """
+        self.id = id
         self.title = title
-        self.overview = overview
-        self.poster = 'https://image.tmdb.org/t/p/w500/'+ poster
-        self.vote_average = vote_average
-        self.vote_count = vote_count
-
-
-class Review:
-
-    all_reviews = []
-
-    def __init__(self,movie_id,title,imageurl,review):
-        self.movie_id = movie_id
-        self.title = title
-        self.imageurl = imageurl
-        self.review = review
-
-
-    def save_review(self):
-        Review.all_reviews.append(self)
-
-
-    @classmethod
-    def clear_reviews(cls):
-        Review.all_reviews.clear()
-
-    @classmethod
-    def get_reviews(cls,id):
-
-        response = []
-
-        for review in cls.all_reviews:
-            if review.movie_id == id:
-                response.append(review)
-
-        return response
+        self.author = author
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.date = date
+        

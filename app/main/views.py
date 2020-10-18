@@ -16,7 +16,7 @@ def index():
     popular_movies = get_movies("popular")
     upcoming_movie = get_movies("upcoming")
     now_showing_movie = get_movies("now_playing")
-    title = "Watchlist"
+    title = "NewsCaptcha"
 
     search_movie = request.args.get("movie_query")
 

@@ -2,12 +2,14 @@
 
 {% for source in news_source_list %}
 <div class="card">
-    <img src="/static/images/news.png" class="card-img-top" alt="news">
-    <div class="card-body">
-        <h5 class="card-title">{{source.name}}</h5>
-        <p class="card-text">{{source.category}}</p>
-        <p class="card-text">{{source.description |truncate(100)}}</p>
-    </div>
+    <a href="/sources/{{source.id}}">
+        <img src="/static/images/news.png" class="card-img-top" alt="news">
+        <div class="card-body">
+            <h5 class="card-title">{{source.name}}</h5>
+            <p class="card-text">{{source.category}}</p>
+            <p class="card-text">{{source.description |truncate(100)}}</p>
+    </a>
+</div>
 </div>
 {% endfor %}
 {% endmacro %}

@@ -1,10 +1,10 @@
-import urllib.request
-import json
+import urllib.request,json
 from .models import News_Source, News_Articles
 from config import Config
 from datetime import datetime
 
 api_key = Config.NEWS_API_KEY
+base_url = Config.NEWS_SOURCE_API_BASE_URL
 article_base_url = Config.NEWS_ARTICLES_API_BASE_URL
 
 
@@ -19,21 +19,21 @@ def get_news(category):
     """
     Function that gets the json response to our url request
     """
-    get_news_source_url = base_url.format(category, api_key)
+    get_news_url = base_url.format(category, api_key)
 
-    with urllib.request.urlopen(get_news_source_url) as url:
+    with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
 
         news_source_results = None
 
-        if get_news_response["results"]:
-            news_results_list = get_news_response["results"]
+        if get_news_response["sources"]:
+            news_results_list = get_news_response["sources"]
             news_source_results = process_news_source(news_results_list)
 
     return news_source_results
 
-def process_news_source(news_article_list):
+def process_news_source(news_source_list):
     """
     Function  that processes the news source result and transform them to a list of Objects
 
@@ -44,7 +44,8 @@ def process_news_source(news_article_list):
         news_source_results: A list of news source objects
     """
     news_source_results = []
-    for news_item in news_article_list:
+
+    for news_item in news_source_list:
         id = news_item.get("id")
         name = news_item.get("name")
         description = news_item.get("description")
@@ -101,18 +102,3 @@ def process_news_articles(news_article_list):
 
         return news_article_results
 
-
-def search_movie(movie_name):
-    search_movie_url = "https://api.themoviedb.org/3/search/movie?api_key={}&query={}".format(
-        api_key, movie_name)
-    with urllib.request.urlopen(search_movie_url) as url:
-        search_movie_data = url.read()
-        search_movie_response = json.loads(search_movie_data)
-
-        search_movie_results = None
-
-        if search_movie_response["results"]:
-            search_movie_list = search_movie_response["results"]
-            search_movie_results = process_results(search_movie_list)
-
-    return search_movie_results

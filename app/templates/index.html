@@ -1,47 +1,57 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+{% extends "base.html" %}
+{% import 'macros.html' as macro %}
+<!-- Content block -->
+{% block body %}
+<div class="container-fluid flex flex-column" style="margin: 0; padding: 0;">
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="static/images/news.png" alt="logo" />
+            NEWS
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<!DOCTYPE html>
-<html>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Why News</a>
+                </li>
+            </ul>
+            <form action="/query" method="GET" class="form-inline my-2 my-lg-0 search-form">
+                <input class="form-control mr-sm-2" type="search" id="search" name="search"
+                    placeholder="Search News, Articles" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" name="search"
+                    id="search_button">Search</button>
+            </form>
+        </div>
+    </nav>
 
-<head>
-    <!-- Styles block -->
+    <div style=" z-index: -99; width: 100%; height: 100%; margin-top: 5%;">
+        <iframe class="embed__frame lazyloaded" data-width="100%" data-height="1000" frameborder="0" scrolling="no"
+          allowfullscreen="allowfullscreen" data-sort-time="1539034939000" data-update-time="1539034939000" width="100%" height="1000"
+          src="https://www.cbsnews.com/embed/video/?v=6ae03718d52bce17b6c09eb0cc906922#vVbbbtw2EP2VhR76ZFqURN0WCAo7DtA0RuBk7aKAFQiUOFoxpi4VKe86gf%2B9Q0m7tuMCLfoQBBuInPvwzBl%2Fd%2Fhoul7xB2ddcaXhxLmXAjpn%2Fd2RBhrtrG%2B%2FO%2BahB2ftKHkPzokjBX6zgPleVEakCmlMWFQCKTxREh5FfiWYR9PAR92m33%2BG6r21SJvdxnz7y%2Fz54UEWOWy%2FbW6urmp2ocRH%2Fu7r71Zbq3GLmmWhWzwZaZQN%2B%2FZ88xGPAu7wgB%2FVqNQPspK3XStLrq5f3hvZgDa86Z21FwYpDViK%2F1OK3saBG9m1zpp4T6dLXoBC88u5UjUfWwyIZTd8C9o2RttyamN6vc7czLXpwk4Hp%2FghMZqR5WnZNZlbj0XmyswdMtenXpK51P48%2FPmFCKkPJEo9SpgXAUmZ7xNeeLGgAQRBhZamHpui5VJlbsToPoho5gZx4FUJi6syZTGWwmkV%2B5yDoEUchEk4Z0NqUqgRTr%2F2W6yi%2Funpen5C97Fv8xU%2BZcCiwg95QIXnp4mI0zCKKNCEFeJ1vo8nTj%2FAvYTdzaBeJU5GTUoQsJfa5t9qMwBvTpea5jq60WTuPeYdhjyJWAJJ5QUMEp%2BzmFZJIMLIFwAlz9yGawND7nmnTTAmzhH8z6IKLk%2B3XbdVMHtXsgWOLaqVzly4hxaDbaRge3n96fru7bW3uRyj4evN5tPB%2FQvf%2Fs8p6RCz6oaGG4zJ%2B17hgFiQZ%2B6eND1sbz5fosb4Q5d3u93L2HbqM9fOvX7f9J31fuQKpA5ZTlxhMZbwIC6jsCBlIRhhRVmQggqkiIICL%2F049eLk1ZTXEgY%2BlDUS0O189wURwAds7LX1%2FpE3zwb6qH3%2BMAtuZ8kXhA30UncC73CgNXBth9vxbEDYNuhuFow9wkvrYwlcqbOyxJtz1ZV3x2HXNxqGzVjocpAFiKO67rtWd8NBr4b92QVUfFS2yfQE%2FznT7fnTbZCesPAkTC0fDby8k%2B3Wtgybq8tugOkbYRFQGtIkQjJjS73LE1h%2BixZSuv6DWMlqIahW59rkW9sg%2B2DzDe9zbkv%2FmLlnR51%2BODTx8dFSqEYgfB5b0e3aF89fAQjEI77DSxT4p4i%2BYTbI3F9BSAulN9Yjudn8gg9mWhjeTADGxWH5msszrcFM5P%2FPE2IXxLi%2FGroeBvPwARADjs9iEDyMAuQWL2QpSz0%2FCHgQOY8IjAYMnygYO2lg%2B2C%2F8a7uxIxxaIVlEEsfeDFNXK5rUFW%2Bk6bOaxi6vOY6FwPfbnmhIFeykSYPrdUE4pR6SH5BRdKABYTxAkEcTytOFFCKGEXwBGIcAKJNN0iwzV%2F2JDYMUWIR978yQUz2Em1w4q0VjmuNfFN2SkE5z%2B8xALLuUwLTkB4WI87OarMk9vgSeFK%2Fa21ArNYMox2BAXeAgumhIKExS%2F2EJLGHRUMaIdeLgJRhjC8jUr8qpwxnk6uxuMB3sM%2BGTSM0IR5befGa0rXnP6kdtjKiY2UhtSKrAknOJjSdT1Y%2By9x4ZalmNfPfQbT6ZYUlrp56fHB5aHVrsA95BdyMwwQ73B3lQSxA36H5RF4XcG%2FzdCy7bA8K1YAOctHhROObInB%2Fk5bebmfBdP9lFmzm5h9snpksrpBVLDfYEnZQOAs5Tk31CmRt%2FJE4TATxPPBJiruQUGxaBQmntKAHg4XvngeZgOGs2YlTDLwVV4oby%2BuT62VIc5tI%2FlSuPS6eFg3rH7iSY2Mx0A9dJdUz8TK00NomoXQao%2BOfVT%2Bu4ldLwk4ycgK%2F6vREDEtPoLHcOXf8v%2Fiwekva03kagH81XDbU4%2BPf">
+        </iframe>
+    </div>
 
-    {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
-    {% endblock %}
-</head>
-
-<body>
-    <!-- Content block -->
-    {% block content %}
     <div class="container">
-        <!-- Popular movie -->
-        <div class="row popular">
-            <h3> Popular Movies</h3>
-            <ul>
-                {{ macro.displayMovieList(popular)}}
-            </ul>
-        </div>
 
-        <div class="row upcoming">
-            <!-- Upcoming movie  -->
-            <h3> Upcoming Movies </h3>
-            <ul>
-                {{ macro.displayMovieList(upcoming)}}
-            </ul>
-        </div>
+        <h3> Top Headlines</h3> <br>
 
-        <div class="row now-showing">
-            <!-- Now showing movie -->
-            <h3>Now Showing</h3>
-            <ul>
-                {{ macro.displayMovieList(now_showing)}}
-            </ul>
+        <div class="news-headlines">
+            {{ macro.displaySourceList(sources)}}
+
+            {{ macro.displaySourceList(technology_sources)}}
+
+            {{ macro.displaySourceList(entertainment_sources)}}
+
+            {{ macro.displaySourceList(sports_sources)}}
         </div>
     </div>
-    {% endblock%}
-</body>
+</div>
 
-</html>
+{% endblock %}

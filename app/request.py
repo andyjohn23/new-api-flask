@@ -75,22 +75,6 @@ def get_news_articles(id):
 
     return articles_results
 
-def search_article(query):
-    search_url = "https://newsapi.org/v2/everything?q={}&apiKey={}".format(api_key, query)
-    with urllib.request.urlopen(search_url) as url:
-        search_data = url.read()
-        search_response = json.loads(search_data)
-
-        search_results = None
-
-        if search_response["articles"]:
-            search_list = search_response["articles"]
-            search_results = process_articles(search_list)
-
-
-    return search_results
-
-
 def process_articles(articles):
     """
     Function  that processes the news article result and transform them to a list of Objects

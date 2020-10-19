@@ -18,12 +18,20 @@ class News_Source:
         self.country = country 
 
         
-class Articles:
-    
-    def __init__(self, id,author, title, urlToImage, url):
+class News_Articles:
+    """
+    News articles class to define news-article objects
+    """
+
+    def __init__(self,id,title,author,description,url,urlToImage,publishedAt):
+        """
+        Initiliazing the variables of the class
+        """
         self.id = id
-        self.author = author
         self.title = title
-        self.urlToImage= urlToImage
+        self.author = author
+        self.description = description
         self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
         

@@ -38,7 +38,7 @@ def process_news_source(news_source_list):
     Function  that processes the news source result and transform them to a list of Objects
 
     Args:
-        news_list: A list of dictionaries that contain news source details
+        news_source_list: A list of dictionaries that contain news source details
 
     Returns :
         news_source_results: A list of news source objects

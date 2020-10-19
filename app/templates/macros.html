@@ -2,7 +2,7 @@
 
 {% for source in category %}
 <div class="card">
-    <a href="/news_sources/{{source.id}}">
+    <a href="/sources/{{source.id}}">
         <img src="/static/images/news.png" class="card-img-top" alt="news">
         <div class="card-body">
             <h5 class="card-title">{{source.name}}</h5>
@@ -17,18 +17,5 @@
 
 
 {% macro displayArticleList(articles) %}
-{% for news_article in articles %}
-<div class="card">
-    <a href="{{news_article.url}}">
-        <img src="{{news_article.urlToImage}}" class="card-img-top" alt="article">
-        <div class="card-body">
-            <h5 class="card-title">{{news_article.id}}</h5>
-            <h5 class="card-title">{{news_article.title|truncate(20)}}</h5>
-            <p class="card-text">{{news_article.author|truncate(40)}}</p>
-            <p class="card-text">{{news_article.description|truncate(100)}}</p>
-            <p class="card-text">{{news_article.publishedAt.date}}</p>
-        </div>
-    </a>
-</div>
-{% endfor %}
+
 {% endmacro %}

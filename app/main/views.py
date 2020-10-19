@@ -5,15 +5,15 @@ from ..models import News_Source, News_Articles
 
 @main.route('/')
 def index():
-	'''
+	"""
 	view root page function that returns the index the page and its data
-	'''
-	sources = get_news('general')
-	sports_sources = get_news('sports')
-	technology_sources = get_news('technology')
-	entertainment_sources = get_news('entertainment')
+	"""
+	business_news = get_news('business')
+	sports_news= get_news('sports')
+	technology_news= get_news('technology')
+	entertainment_news= get_news('entertainment')
 
-	return render_template('index.html',sources = sources,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
+	return render_template('index.html',business=business_news,sports= sports_news,technology= technology_news,entertainment= entertainment_news)
 
 @main.route('/sources/<id>')
 def articles(id):

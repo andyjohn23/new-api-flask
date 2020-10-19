@@ -2,7 +2,9 @@ class News_Source:
     """
     News-source class to define News Objects
     """
+    source_list = []
 
+    
     def __init__(self,id,name,description,url,category,language,country):
         """
         Initiliazing the variables of the class

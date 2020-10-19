@@ -15,10 +15,6 @@ def index():
 	entertainment_news = get_news("entertainment")
 	health_news = get_news("health")
 
-	search_article = request.args.get("article_query")
-		
-	if search_article:
-		return redirect(url_for('main.search', search_word = search_article))
 	return render_template('index.html',health=health_news,business=business_news,sports= sports_news,technology= technology_news,entertainment= entertainment_news)
 
 @main.route("/sources/<id>")

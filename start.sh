@@ -1,4 +1,3 @@
-export MOVIE_API_KEY="9e90913f39ae9ea71d2f5d4bcaf30d47"
-export SECRET_KEY="<Flask WTF Secret Key>"
+export NEWS_API_KEY="008287640b5646ffa39941dbe924d255"
 
 python3.6 manage.py server

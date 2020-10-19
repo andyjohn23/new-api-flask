@@ -5,7 +5,7 @@ from datetime import datetime
 
 api_key = Config.NEWS_API_KEY
 base_url = Config.NEWS_SOURCE_API_BASE_URL
-article_base_url = Config.NEWS_ARTICLES_API_BASE_URL
+article_base_url = None
 
 
 def configure_request(app):
@@ -61,7 +61,7 @@ def process_news_source(news_source_list):
 
 
 
-def get_news_article(id):
+def get_news_articles(id):
 
     get_articles_url = article_base_url.format(id, api_key)
 
@@ -69,9 +69,10 @@ def get_news_article(id):
             articles_results = json.loads(url.read())
 
             articles_object = None
-            if articles_results["news_article"]:
+            
+            if articles_results["articles"]:
                 articles_object = process_news_articles(
-                    articles_results["news_article"])
+                    articles_results["articles"])
 
     return articles_object
 
@@ -97,8 +98,9 @@ def process_news_articles(news_article_list):
         publishedAt = news_item.get("publishedAt")
         date = news_item.get("date")
 
-        news_object = News_Articles(id,title,author,description,url,urlToImage,publishedAt,date)
-        news_article_results.append(news_object)
+        if urlToImage:
+                news_object = News_Articles(id,title,author,description,url,urlToImage,publishedAt,date)
+                news_article_results.append(news_object)
 
-        return news_article_results
+    return news_article_results
 

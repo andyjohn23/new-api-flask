@@ -13,21 +13,35 @@ to display news and article content through the use of the news-api.
 ## DEVELOPMENT INSTALLATION
 To clone the project:
 1. Create and Open a folder in Visual Studio Code then initialize git,
+   ```
    git clone https://github.com/andyjohn23/new-api-flask.git
 
+   ```
+
 1. cd to the folder then install requirements.txt
+   ```
    cd new-api-flask
    pip install -r requirements.txt
 
+   ```
+
 1. API Configuration
+   ```
    export API_KEY="<enter your api key>"
 
+   ```
 1. Run the application
+   ```
    ./start.sh
 
+   ```
+
 1. Open Browser
+   ```
    The application will run on server 127.0.0.1:5000
 
+   ```
+   
 ## BEHAVIOUR DRIVEN DEVELOPMENT
 1. User searches the news site online
 1. User views the top news headlines in different category

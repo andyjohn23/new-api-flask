@@ -2,13 +2,14 @@
 
 {% for source in category %}
 <div class="card">
+    <a href="/news_sources/{{source.id}}">
         <img src="/static/images/news.png" class="card-img-top" alt="news">
         <div class="card-body">
             <h5 class="card-title">{{source.name}}</h5>
             <p class="card-text">{{source.category}}</p>
             <p class="card-text">{{source.description |truncate(100)}}</p>
-            <a href="/news_sources/{{source.id}}" class="btn btn-primary">View Articles</a>
         </div>
+    </a>
 </div>
 {% endfor %}
 {% endmacro %}

@@ -31,6 +31,7 @@
     display: inline-grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
+    grid-gap: 10px;
 }
 h3{
     font-size: 20px;
@@ -54,6 +55,37 @@ h3{
     object-fit: contain;
 }
 .general-news h5{
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: black;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+.tech-news{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+}
+.tech-news p{
+    font-size: 13px;
+    color: black;
+}
+.tech-news .card{
+    max-width: 90%;
+    max-height: 100%;
+    background-color: rgba(202, 217, 228, 0.3);
+}
+.tech-news .card img{
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+}
+.tech-news h5{
     font-size: 17px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;

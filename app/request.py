@@ -1,4 +1,5 @@
-import urllib.request,json
+import urllib.request
+import json
 from .models import News_Source, News_Articles
 from config import Config
 from datetime import datetime
@@ -33,6 +34,7 @@ def get_news(category):
 
     return news_source_results
 
+
 def process_news_source(news_source_list):
     """
     Function  that processes the news source result and transform them to a list of Objects
@@ -54,11 +56,11 @@ def process_news_source(news_source_list):
         language = news_item.get("language")
         country = news_item.get("country")
 
-        news_object = News_Source(id, name, description, url, category, country, language)
+        news_object = News_Source(
+            id, name, description, url, category, country, language)
         news_source_results.append(news_object)
 
         return news_source_results
-
 
 
 def get_news_articles(id):
@@ -66,13 +68,13 @@ def get_news_articles(id):
     get_articles_url = article_base_url.format(id, api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
-            articles_results = json.loads(url.read())
+        articles_results = json.loads(url.read())
 
-            articles_object = None
-            
-            if articles_results["articles"]:
-                articles_object = process_news_articles(
-                    articles_results["articles"])
+        articles_object = None
+
+        if articles_results["articles"]:
+            articles_object = process_news_articles(
+                articles_results["articles"])
 
     return articles_object
 
@@ -98,9 +100,7 @@ def process_news_articles(news_article_list):
         publishedAt = news_item.get("publishedAt")
         date = news_item.get("date")
 
-        if urlToImage:
-                news_object = News_Articles(id,title,author,description,url,urlToImage,publishedAt,date)
-                news_article_results.append(news_object)
+        news_object = News_Articles(id, title, author, description, url, urlToImage, publishedAt, date)
+        news_article_results.append(news_object)
 
     return news_article_results
-

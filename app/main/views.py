@@ -8,12 +8,13 @@ def index():
 	"""
 	view root page function that returns the index the page and its data
 	"""
-	business_news = get_news('business')
-	sports_news= get_news('sports')
-	technology_news= get_news('technology')
-	entertainment_news= get_news('entertainment')
+	business_news = get_news("business")
+	sports_news= get_news("sports")
+	technology_news= get_news("technology")
+	entertainment_news= get_news("entertainment")
+	health_news=get_news("health")
 
-	return render_template('index.html',business=business_news,sports= sports_news,technology= technology_news,entertainment= entertainment_news)
+	return render_template('index.html',health=health_news,business=business_news,sports= sports_news,technology= technology_news,entertainment= entertainment_news)
 
 @main.route('/sources/<id>')
 def articles(id):

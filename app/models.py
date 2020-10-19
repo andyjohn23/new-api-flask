@@ -23,7 +23,7 @@ class News_Articles:
     News articles class to define news-article objects
     """
 
-    def __init__(self,id,title,author,description,url,urlToImage,publishedAt,date):
+    def __init__(self,id,title,author,description,url,urlToImage,publishedAt):
         """
         Initiliazing the variables of the class
         """
@@ -34,5 +34,4 @@ class News_Articles:
         self.url = url
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
-        self.date = date
         

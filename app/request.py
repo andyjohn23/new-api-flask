@@ -2,9 +2,9 @@ import urllib.request,json
 from .models import News_Source, News_Articles
 from config import Config
 
-api_key = Config.NEWS_API_KEY
-base_url = Config.NEWS_SOURCE_API_BASE_URL
-article_url = Config.NEWS_ARTICLES_API_BASE_URL
+api_key = None
+base_url = None
+article_url = None
 
 
 def configure_request(app):

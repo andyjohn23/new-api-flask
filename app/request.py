@@ -94,9 +94,10 @@ def process_articles(articles):
         url = article.get("url")
         urlToImage = article.get("urlToImage")
         publishedAt = article.get("publishedAt")
+        date = article.get("date")
 
         if url:
-              article_object = News_Articles(id, title, author, description, url, urlToImage, publishedAt)
+              article_object = News_Articles(id, title, author, description, url, urlToImage, publishedAt,date)
               news_article_results.append(article_object)
 
     return news_article_results

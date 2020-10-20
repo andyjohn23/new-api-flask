@@ -85,20 +85,17 @@ def process_articles(articles):
     """
     news_article_results = []
 
+    articles_results = []
     for article in articles:
-        id = article.get("id")
-        title = article.get("title")
-        author = article.get("author")
-        description = article.get("description")
-        url = article.get("url")
-        urlToImage = article.get("urlToImage")
-        publishedAt = article.get("publishedAt")
-        date = article.get("date")
+        title = article.get('title')
+        author = article.get('author')
+        description = article.get('description')
+        url= article.get('url')
+        urlToImage = article.get('urlToImage')
+        publishedAt = article.get('publishedAt')
 
-        if url:
-              article_object = News_Articles(id, title, author, description, url, urlToImage, publishedAt,date)
-              news_article_results.append(article_object)
-
+        news_articles = News_Articles(title,author,description, url, urlToImage, publishedAt)
+        articles_results.append(news_articles)
     return news_article_results
 
 

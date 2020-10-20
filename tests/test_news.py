@@ -10,7 +10,7 @@ class News_SourceTest(unittest.TestCase):
         """
         Set up method that will run before every Test
         """
-        self.new_source = News_Source("CBSN","CBSN NEWS","CBSN is the leading free news platform","cbsn.com","business","us","en")
+        self.new_source = News_Source("CBSN","CBSN NEWS","CBSN is the leading free news platform","cbsn.com","business","us", "en")
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,News_Source))
@@ -21,8 +21,8 @@ class News_SourceTest(unittest.TestCase):
         self.assertEquals(self.new_source.description,"CBSN is the leading free news platform")
         self.assertEquals(self.new_source.url,"cbsn.com")
         self.assertEquals(self.new_source.category,"business")
-        self.assertEquals(self.new_source.country,"us")
-        self.assertEquals(self.new_source.language,"en")
+        self.assertEquals(self.new_source.country,"en")
+        self.assertEquals(self.new_source.language,"us")
 
 class News_ArticleTest(unittest.TestCase):
     """
@@ -33,16 +33,16 @@ class News_ArticleTest(unittest.TestCase):
         """
         Set up method that will run before every Test
         """
-        self.news_article = News_Articles("CBSN","JOHN DOE","Technology Change The World","Technolgy is the best","tech.com","tech.com/tchey.png","20-10-2020")
+        self.news_article = News_Articles("Technology Change The World","JOHN DOE","Technolgy is the best","tech.com","tech.com/tchey.png","2020-10-20")
 
     def test_instance(self):
         self.assertTrue(isinstance(self.news_article,News_Articles))
 
     def test_to_check_instance_variables(self):
-        self.assertEquals(self.news_article.id,"CBSN")
-        self.assertEquals(self.news_article.author,"JOHN DOE")
         self.assertEquals(self.news_article.title,"Technology Change The World")
+        self.assertEquals(self.news_article.author,"JOHN DOE")
         self.assertEquals(self.news_article.description,"Technolgy is the best")
         self.assertEquals(self.news_article.url,"tech.com")
         self.assertEquals(self.news_article.urlToImage,"tech.com/tchey.png")
-        self.assertEquals(self.news_article.date,"20-10-2020")
+        self.assertEquals(self.news_article.publishedAt,"2020-10-20")
+        

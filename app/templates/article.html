@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for article in article %}
-<div class="news-source">
+{% for article in articles %}
+<div class="news-sources">
 	<div class="card">
 		<a href="{{article.url}}">
 			<img src="{{article.urlToImage}}" class="card-img-top" alt="article">
 			<div class="card-body">
-				<h5 class="card-title">{{article.title|truncate(20)}}</h5>
+				<h5 class="card-title">{{article.title|truncate(50)}}</h5>
 				<p class="card-text">{{article.author|truncate(40)}}</p>
 				<p class="card-text">{{article.description|truncate(100)}}</p>
-				<p class="card-text">{{article.publishedAt.date}}</p>
+				<p class="card-text">{{article.publishedAt}}</p>
 			</div>
 		</a>
 	</div>

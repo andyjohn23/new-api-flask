@@ -16,7 +16,7 @@ def index():
 
 	return render_template('index.html',health=health_news,business=business_news,sports= sports_news,technology= technology_news,entertainment= entertainment_news)
 
-@main.route("/news_sources/<id>")
+@main.route("/sources/<id>")
 def articles(id):
     """
     the route page for news articles

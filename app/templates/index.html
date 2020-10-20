@@ -40,6 +40,26 @@
     </div>
 
     <div class="container">
-        
-   </div>
+        <h3>Top Business Headlines</h3>
+        <div class="news-sources">
+            {{macro.displayNewsList(business)}}
+        </div>
+
+        <h3>Top Technology Headlines</h3>
+        <div class="news-sources">
+            {{macro.displayNewsList(technology)}}
+        </div>
+
+        <h3>Top Sports Headlines</h3>
+        <div class="news-sources">
+            {{macro.displayNewsList(sports)}}
+        </div>
+
+        <h3>Top Health Headlines</h3>
+        <div class="news-sources">
+            {{macro.displayNewsList(health)}}
+        </div>
+
+    </div>
+</div>
 {% endblock %}

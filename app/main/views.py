@@ -20,7 +20,7 @@ def articles(id):
     """
     the route page for news articles
     """
-    article = get_news_articles(id)
+    articles = get_news_articles(id)
 
-    return render_template('article.html', article= article)
+    return render_template('article.html', article= articles)
 
